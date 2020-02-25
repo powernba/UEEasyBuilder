@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Reflection;
+using System.Windows.Forms;
+using EasyBuilder.Classes;
 
 namespace EasyBuilder
 {
@@ -23,6 +26,24 @@ namespace EasyBuilder
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string folderPath = "";
+            FolderBrowserDialog FolderDialog = new FolderBrowserDialog();
+
+            if (FolderDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                folderPath = FolderDialog.SelectedPath;
+                ProjectDirectory.Text = folderPath;
+            }
+        }
+
+        private void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            Copier copier = new Copier();
+            copier.Copy(ProjectDirectory.Text, "C:\\Users\\User\\Desktop\\sth");
         }
     }
 }

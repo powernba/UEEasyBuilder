@@ -6,19 +6,43 @@
         xmlns:local="clr-namespace:EasyBuilder"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <ImageBrush x:Key="Browse_Icon" ImageSource="Resources/Icons/Browse.png" Stretch="Uniform"/>
+        <ImageBrush x:Key="Browse_Hover_Icon" ImageSource="Resources/Icons/Browse_hover.png" Stretch="Uniform"/>
+        
+        <Style x:Key="BrowseButton" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource Browse_Icon}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Browse_Hover_Icon}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Browse_Hover_Icon}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
         <Grid HorizontalAlignment="Left" Height="52" Margin="10,10,0,0" VerticalAlignment="Top" Width="239">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="25*"/>
                 <ColumnDefinition Width="6*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="button" Content="Test" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="4,0,0,0" HorizontalAlignment="Left" Width="32" Grid.Column="1" >
-                <Button.Background>
-                    <ImageBrush ImageSource="Resources/Icons/Browse.png" Stretch="Uniform"/>
-                </Button.Background>
-            </Button>
-            <TextBox x:Name="textBox" Margin="10,10,2,10" TextWrapping="Wrap" IsEnabled="False" BorderBrush="#FF76AADA"/>
+            <Button x:Name="button" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="4,0,0,0" HorizontalAlignment="Left" Width="32" Grid.Column="1" Click="Button_Click" Style="{DynamicResource BrowseButton}" />
+            <TextBox x:Name="ProjectDirectory" Margin="10,10,2,10" TextWrapping="Wrap" BorderBrush="#FF76AADA" FontSize="12" MaxLines="1" IsReadOnly="True" IsEnabled="False"/>
 
         </Grid>
+        <Button x:Name="StartButton" Content="Button" HorizontalAlignment="Left" Margin="249,190,0,0" VerticalAlignment="Top" Width="75" Click="StartButton_Click"/>
     </Grid>
 </Window>
