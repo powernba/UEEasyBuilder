@@ -14,7 +14,7 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="button" Content="Test" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="4,0,0,0" HorizontalAlignment="Left" Width="32" Grid.Column="1" >
                 <Button.Background>
-                    <ImageBrush ImageSource="Resources/Icons/Browse" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="Resources/Icons/Browse.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
             <TextBox x:Name="textBox" Margin="10,10,2,10" TextWrapping="Wrap" IsEnabled="False" BorderBrush="#FF76AADA"/>
