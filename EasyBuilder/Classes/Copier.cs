@@ -9,7 +9,7 @@ namespace EasyBuilder.Classes
 {
     class Copier
     {
-       public void Copy(String source, String destination) {
+        async public Task Copy(String source, String destination) {
 
             DirectoryInfo sourceDir = new DirectoryInfo(source);
             DirectoryInfo destDir = new DirectoryInfo(destination);
@@ -39,6 +39,10 @@ namespace EasyBuilder.Classes
                 string temppath = Path.Combine(destination, subdir.Name);
                 Copy(subdir.FullName,temppath);
             }
+        }
+        public async Task Test()
+        {
+            await Task.Delay(5000);
         }
     }
 }

@@ -40,10 +40,12 @@ namespace EasyBuilder
             }
         }
 
-        private void StartButton_Click(object sender, RoutedEventArgs e)
+        private async void StartButton_Click(object sender, RoutedEventArgs e)
         {
             Copier copier = new Copier();
-            copier.Copy(ProjectDirectory.Text, "C:\\Users\\User\\Desktop\\sth");
+            await copier.Copy(ProjectDirectory.Text, "C:\\Users\\User\\Desktop\\sth");
+            ProjectDirectory.Text = "Done";
+
         }
     }
 }

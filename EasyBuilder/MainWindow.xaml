@@ -10,7 +10,6 @@
     <Window.Resources>
         <ImageBrush x:Key="Browse_Icon" ImageSource="Resources/Icons/Browse.png" Stretch="Uniform"/>
         <ImageBrush x:Key="Browse_Hover_Icon" ImageSource="Resources/Icons/Browse_hover.png" Stretch="Uniform"/>
-        
         <Style x:Key="BrowseButton" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="{StaticResource Browse_Icon}"/>
             <Setter Property="Template">
